@@ -1,0 +1,192 @@
+﻿@model IEnumerable<HealthInsurance.Models.Employee>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {box-sizing: border-box;}
+
+body { 
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #333;
+  color: white;
+}
+
+.header {
+  overflow: hidden;
+  background-color: #f1f1f1;
+  padding: 20px 10px;
+}
+
+.header a {
+  float: left;
+  color: black;
+  text-align: center;
+  padding: 12px;
+  text-decoration: none;
+  font-size: 18px; 
+  line-height: 25px;
+  border-radius: 4px;
+}
+
+.header a.logo {
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.header a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.header a.active {
+  background-color: #333;
+  color: white;
+}
+
+.header-right {
+  float: right;
+}
+
+a{
+  color: white;
+  text-decoration: none;
+}
+.table{
+  box-shadow: rgba(252, 252, 252, 0) 5px 7px 15px;
+  padding: 10px 30px 50px ;
+    border-collapse: collapse ;
+                               
+}
+                        table {
+                                 
+                                 
+                                 border-collapse: collapse ;
+                                 width: 100%;
+                               }
+                               
+                               td, th {
+                                 border: 1px solid white;
+                                 text-align: left;
+                                 padding: 8px;
+                               }
+                               
+                               tr:nth-child(1) th {
+                                
+                                 border: 2px solid #666;
+                                 
+                               }
+                               
+                             
+</style>
+</head>
+<body>
+
+  <div class="header">
+    <a href="index.html" class="logo">Health Insurance</a>
+    <div class="header-right">
+            <a asp-action="Home" asp-controller="Home">Home</a> |
+                <a asp-action="Index" >Policies</a> |
+            <a asp-action="Company" asp-controller="Home">Company</a>|
+            <a asp-action="Employee" asp-controller="Home">Employee</a>|
+            <a asp-action="Logout" asp-controller="Home">Log out</a>|
+    </div>
+  </div>
+<h1 style="padding:0  250px;">Employee List</h1>
+ <div class="table">
+     <br />
+        <a asp-action="Create">Create New EMPLOYEE</a>
+
+                        
+                           <div class="domain-price_main ">
+
+
+
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.EmployeeId)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Designation)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Firstname)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Lastname)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.ContactNo)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Joindate)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Address)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.PolicyId)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.PolicyStatus)
+                        </th>
+
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.EmployeeId)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Designation)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Firstname)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Lastname)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.ContactNo)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Joindate)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Address)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.PolicyId)
+                            <td>
+                                    @Html.DisplayFor(modelItem => item.PolicyStatus)
+                            </td>
+
+                            <td>
+                                <a asp-action="UpdateEmployeeDetails" asp-route-id="@item.EmployeeId"> Update Employee Details</a> |
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+
+        </div>
+                           
+                          
+                    
+                 
+                  </div>
+
+</body>
+</html>

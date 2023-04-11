@@ -1,0 +1,62 @@
+﻿@model IEnumerable<HealthInsurance.Models.Policy>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.PolicyName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CompanyId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PolicyDescription)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Amount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Emi)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PolicyName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CompanyId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PolicyDescription)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Amount)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Emi)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.PolicyId">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.PolicyId">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.PolicyId">Delete</a>|
+                    <a asp-action="Buy" asp-route-id="@item.PolicyId">Buy Policy</a>|
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
